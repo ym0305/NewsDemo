@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private DrawerLayout drawerLayout;
     private static final String TAG = "MainActivity";
     private SwipeRefreshLayout swip;
+    private NewsAdapter adapter;
     public String url;
     public String type;
 
@@ -80,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onRefresh() {
                 newsList.clear();
+                adapter.notifyDataSetChanged();
                 getJsonDate(url);
                 swip.setRefreshing(false);
 
@@ -204,7 +206,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void run() {
 
-                        NewsAdapter adapter = new NewsAdapter(newsList);
+                        adapter = new NewsAdapter(newsList);
                         recyclerView.setAdapter(adapter);
                     }
                 });
