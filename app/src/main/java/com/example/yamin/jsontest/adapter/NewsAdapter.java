@@ -42,6 +42,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
         ImageView textIma;
 
+        View divider;
+
         public ViewHolder(View view){
             super(view);
 
@@ -50,6 +52,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             data = (TextView)view.findViewById(R.id.data);
             author = (TextView)view.findViewById(R.id.author);
             textIma = (ImageView)view.findViewById(R.id.image_View);
+            divider = (View)view.findViewById(R.id.divider);
         }
     }
 
@@ -96,6 +99,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         holder.title.setText(news.getTitle());
 
         holder.data.setText(news.getData());
+
+        if (position == mNewsList.size() - 1 ){      //若是到达 RecyclerView 最后一项，则把分割线隐藏
+            holder.divider.setVisibility(View.GONE);
+        }
 
     }
 
