@@ -16,3 +16,5 @@ getJsonDate(url);
 
 ```
 
+#在 RecyclerView 的列表中添加了分割线
+
